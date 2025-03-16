@@ -1,0 +1,110 @@
+import type { Config } from "tailwindcss"
+import { lightTheme, darkTheme } from "./src/constants/colors"
+
+const config: Config = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        // Neobrutalism theme colors
+        neo: {
+          // Light theme
+          "primary-light": lightTheme.primary,
+          "primary-light-hover": lightTheme.primaryHover,
+          "secondary-light": lightTheme.secondary,
+          "secondary-light-alt": lightTheme.secondaryAlt,
+          "accent-light": lightTheme.accent,
+          "accent-light-hover": lightTheme.accentHover,
+          "bg-light": lightTheme.background,
+          "bg-light-alt": lightTheme.backgroundAlt,
+          "bg-light-muted": lightTheme.backgroundMuted,
+          "card-light": lightTheme.backgroundCard,
+          "paper-light": lightTheme.backgroundPaper,
+          "text-light": lightTheme.text,
+          "gray-light": lightTheme.gray,
+          // Dark theme
+          "primary-dark": darkTheme.primary,
+          "primary-dark-hover": darkTheme.primaryHover,
+          "secondary-dark": darkTheme.secondary,
+          "secondary-dark-alt": darkTheme.secondaryAlt,
+          "accent-dark": darkTheme.accent,
+          "accent-dark-hover": darkTheme.accentHover,
+          "bg-dark": darkTheme.background,
+          "card-dark": darkTheme.backgroundCard,
+          "bg-dark-muted": darkTheme.backgroundMuted,
+          "code-dark": darkTheme.backgroundCode,
+          "text-dark": darkTheme.text,
+          "accent-green-dark": darkTheme.accentGreen,
+          "accent-pink-dark": darkTheme.accentPink,
+          // Common
+          linkedin: lightTheme.linkedin,
+          "linkedin-hover": lightTheme.linkedinHover,
+        },
+      },
+      fontFamily: {
+        poppins: ["var(--font-poppins)"],
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: "#fff",
+            a: {
+              color: "#9333ea",
+              "&:hover": {
+                color: "#a855f7",
+              },
+            },
+            strong: {
+              color: "#fff",
+            },
+            h1: {
+              color: "#fff",
+            },
+            h2: {
+              color: "#fff",
+            },
+            h3: {
+              color: "#fff",
+            },
+            h4: {
+              color: "#fff",
+            },
+            code: {
+              color: "#fff",
+              backgroundColor: "rgba(147, 51, 234, 0.1)",
+              borderRadius: "0.25rem",
+              padding: "0.25rem",
+            },
+            "code::before": {
+              content: '""',
+            },
+            "code::after": {
+              content: '""',
+            },
+            ".katex": {
+              fontSize: "1.1em",
+            },
+            ".katex-display": {
+              overflow: "auto hidden",
+              margin: "1em 0",
+            },
+            ".math.math-inline": {
+              padding: "0.1em 0.25em",
+              backgroundColor: "rgba(147, 51, 234, 0.1)",
+              borderRadius: "0.25rem",
+            },
+          },
+        },
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/typography")],
+}
+
+export default config
